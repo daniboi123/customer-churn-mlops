@@ -1,0 +1,45 @@
+docker run -d --name risco-credito-container -p 5001:8080 risco-credito-serving:latest
+
+
+
+curl http://127.0.0.1:5001/pin
+
+
+
+
+
+
+
+E agora você já pode documentar o teste Docker no README
+
+Por exemplo:
+
+## Testando o modelo via Docker
+
+### 1. Iniciar o container
+
+```powershell
+docker run -d `
+  --name risco-credito-container `
+  -p 5001:8080 `
+  risco-credito-serving:latest
+2. Verificar se o servidor está funcionando
+curl.exe http://127.0.0.1:5001/ping
+
+Resposta esperada:
+
+OK
+3. Fazer uma previsão
+curl.exe -X POST http://127.0.0.1:5001/invocations `
+  -H "Content-Type: application/json" `
+  -d '{"inputs":[{"idade":35,"renda_mensal":5000.0,"tempo_emprego_anos":5.0,"score_interno":750.0,"valor_solicitado":20000.0,"num_parcelas":24,"tipo_renda":"CLT","possui_restricao":"NAO"}]}'
+
+Resposta:
+
+{
+  "predictions": [0]
+}
+
+---
+
+**Você chegou na parte mais importante do teste de deployment.** O modelo que estava no MLflow Registry foi 

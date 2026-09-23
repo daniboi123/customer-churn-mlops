@@ -1,0 +1,41 @@
+artifact_path: file:C:/Users/vagne/OneDrive/Desktop/programacao/projetoMLops/MLFlow-master/mlartifacts/2/models/m-d583892b72544784a809c647913274e2/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.skops
+    predict_fn: predict
+    python_version: 3.13.14
+  sklearn:
+    code: null
+    pickled_model: model.skops
+    serialization_format: skops
+    sklearn_version: 1.9.0
+    skops_trusted_types:
+    - numpy.dtype
+is_signature_from_type_hint: false
+mlflow_version: 3.15.1
+model_id: m-d583892b72544784a809c647913274e2
+model_size_bytes: 3189951
+model_uuid: m-d583892b72544784a809c647913274e2
+prompts: null
+run_id: 38cabe73ccc2429095b8dcaae4f3bbe7
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "idade", "required": true}, {"type": "double",
+    "name": "renda_mensal", "required": true}, {"type": "double", "name": "tempo_emprego_anos",
+    "required": true}, {"type": "double", "name": "score_interno", "required": true},
+    {"type": "double", "name": "valor_solicitado", "required": true}, {"type": "long",
+    "name": "num_parcelas", "required": true}, {"type": "string", "name": "tipo_renda",
+    "required": true}, {"type": "string", "name": "possui_restricao", "required":
+    true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-08-11 00:20:46.949173'

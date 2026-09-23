@@ -1,0 +1,15 @@
+python: "3.11"
+
+build_dependencies:
+ - pip
+ - setuptools
+ - wheel
+
+dependencies:
+ - mlflow
+ - pandas
+ - numpy
+ - scikit-learn
+ - matplotlib
+ - cloudpickle
+ - requests

@@ -1,0 +1,64 @@
+name: risco_credito_mlflow_project
+
+python_env: python_env.yaml
+
+entry_points:
+ prepare:
+   parameters:
+     n_samples: {type: int, default: 6000}
+     test_size: {type: float, default: 0.25}
+     random_state: {type: int, default: 42}
+     output_dir: {type: str, default: "data/processed"}
+     pipeline_id: {type: str, default: "manual"}
+   command: >
+     python src/prepare_data.py
+     --n-samples {n_samples}
+     --test-size {test_size}
+     --random-state {random_state}
+     --output-dir {output_dir}
+     --pipeline-id {pipeline_id}
+
+ train:
+   parameters:
+     model_name: {type: str, default: "random_forest"}
+     data_dir: {type: path, default: "data/processed/manual"}
+     random_state: {type: int, default: 42}
+     registered_model_name: {type: str, default: "risco_credito_project_model"}
+     pipeline_id: {type: str, default: "manual"}
+   command: >
+     python src/train.py
+     --model-name {model_name}
+     --data-dir {data_dir}
+     --random-state {random_state}
+     --registered-model-name {registered_model_name}
+     --pipeline-id {pipeline_id}
+
+ evaluate:
+   parameters:
+     model_uri: {type: str}
+     data_dir: {type: path, default: "data/processed/manual"}
+     threshold: {type: float, default: 0.5}
+     pipeline_id: {type: str, default: "manual"}
+   command: >
+     python src/evaluate.py
+     --model-uri {model_uri}
+     --data-dir {data_dir}
+     --threshold {threshold}
+     --pipeline-id {pipeline_id}
+
+ pipeline:
+   parameters:
+     model_name: {type: str, default: "random_forest"}
+     n_samples: {type: int, default: 6000}
+     test_size: {type: float, default: 0.25}
+     random_state: {type: int, default: 42}
+     threshold: {type: float, default: 0.5}
+     registered_model_name: {type: str, default: "risco_credito_project_model"}
+   command: >
+     python src/run_pipeline.py
+     --model-name {model_name}
+     --n-samples {n_samples}
+     --test-size {test_size}
+     --random-state {random_state}
+     --threshold {threshold}
+     --registered-model-name {registered_model_name}

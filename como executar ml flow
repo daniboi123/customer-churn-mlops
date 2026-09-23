@@ -1,0 +1,24 @@
+
+
+defina o traking URI antes de iniciar  server
+$env:MLFLOW_TRACKING_URI="http://127.0.0.1:5000"
+
+apos definido rodar o mlflow
+mlflow server `
+--backend-store-uri sqlite:///mlflow.db `
+--default-artifact-root ./mlartifacts `
+--host 127.0.0.1 `
+--port 5000
+
+
+
+mlflow models serve `
+-m models:/risco_credito_project_model/1 `
+-p 5001 `
+--host 127.0.0.1 `
+--env-manager local
+
+caso queira rodar um tipo de modelo trocar no model_name
+
+    mlflow run . -e pipeline -P model_name=random_forest -P n_samples=6000 -P test_size=0.25 -P random_state=42 -P threshold=0.5 -P registered_model_name=risco_credito_project_model --env-manager local --experiment-name "risco_credito/09_mlflow_projects"
+mlflow run . -e pipeline -P model_name=logistic_regression -P n_samples=6000 -P test_size=0.25 -P random_state=42 -P threshold=0.5 -P registered_model_name=risco_credito_project_model --env-manager local --experiment-name "risco_credito/mlflow_projects"
