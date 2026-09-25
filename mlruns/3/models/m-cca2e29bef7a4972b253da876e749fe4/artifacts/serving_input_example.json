@@ -1,0 +1,66 @@
+{
+  "dataframe_split": {
+    "columns": [
+      "idade",
+      "renda_mensal",
+      "tempo_emprego_anos",
+      "score_interno",
+      "valor_solicitado",
+      "num_parcelas",
+      "tipo_renda",
+      "possui_restricao"
+    ],
+    "data": [
+      [
+        65,
+        1335.25,
+        5.2,
+        651.0,
+        11577.99,
+        24,
+        "autonomo",
+        "nao"
+      ],
+      [
+        44,
+        2586.07,
+        5.7,
+        605.0,
+        8003.77,
+        18,
+        "autonomo",
+        "nao"
+      ],
+      [
+        46,
+        5787.94,
+        11.6,
+        637.0,
+        20887.36,
+        48,
+        "autonomo",
+        "nao"
+      ],
+      [
+        47,
+        7755.15,
+        4.7,
+        649.0,
+        8132.35,
+        48,
+        "autonomo",
+        "nao"
+      ],
+      [
+        28,
+        1380.64,
+        5.2,
+        665.0,
+        4339.38,
+        18,
+        "servidor_publico",
+        "nao"
+      ]
+    ]
+  }
+}
