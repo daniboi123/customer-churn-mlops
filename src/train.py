@@ -168,14 +168,28 @@ def main():
            model_pipe.predict(input_example),
        )
 
+    #    model_info = mlflow.sklearn.log_model(
+    #        sk_model=model_pipe,
+    #        name="model",
+    #        signature=signature,
+    #        input_example=input_example,
+    #        registered_model_name=args.registered_model_name,
+    #        skops_trusted_types=["numpy.dtype"],
+    #    )
+
+
        model_info = mlflow.sklearn.log_model(
-           sk_model=model_pipe,
-           name="model",
-           signature=signature,
-           input_example=input_example,
-           registered_model_name=args.registered_model_name,
-           skops_trusted_types=["numpy.dtype"],
-       )
+        sk_model=model_pipe,
+        name="model",
+        signature=signature,
+        input_example=input_example,
+        registered_model_name=args.registered_model_name,
+        skops_trusted_types=[
+            "numpy.dtype",
+            "sklearn.tree._tree.Tree",
+        ],
+    )
+
 
        mlflow.log_param("model_uri", model_info.model_uri)
 
